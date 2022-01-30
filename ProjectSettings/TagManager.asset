@@ -7,6 +7,9 @@ TagManager:
   - marker
   - wp
   - ai
+  - Fire
+  - Checkpoint
+  - Safe
   layers:
   - Default
   - TransparentFX
