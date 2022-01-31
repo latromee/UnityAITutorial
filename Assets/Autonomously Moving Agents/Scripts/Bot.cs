@@ -6,11 +6,12 @@ namespace AutonomouslyAgents
     public class Bot : MonoBehaviour
     {
         NavMeshAgent agent;
-        [SerializeField] GameObject target;
+        GameObject target;
 
         private void Start()
         {
             agent = GetComponent<NavMeshAgent>();
+            target = World.cop;
         }
 
         void Seek(Vector3 location)
@@ -131,7 +132,7 @@ namespace AutonomouslyAgents
             hideCol.Raycast(backRay, out hit, rayDist);
 
 
-            Seek(hit.point + chosenDir.normalized * 2f);
+            Seek(hit.point + chosenDir.normalized * 5f);
         }
 
         bool CanSeeTarget()
@@ -149,9 +150,41 @@ namespace AutonomouslyAgents
             return false;
         }
 
+        bool TargetCanSeeMe()
+        {
+            Vector3 toAgent = transform.position - target.transform.position;
+            float lookingAngle = Vector3.Angle(target.transform.forward, toAgent);
+
+            return lookingAngle < 60f;
+        }
+
+        bool coolDown = false;
+
+        void BehaviourCoolDown()
+        {
+            coolDown = false;
+        }
+
+        bool TargetInRange()
+        {
+            float distance = Vector3.Distance(transform.position, target.transform.position);
+            return distance < 20f;
+        }
+
         private void Update()
         {
-            if (CanSeeTarget()) CleverHide();
+
+            if (!TargetInRange()) Wander();
+            else if (!coolDown)
+            {
+                if (CanSeeTarget() && TargetCanSeeMe())
+                {
+                    CleverHide();
+                    coolDown = true;
+                    Invoke("BehaviourCoolDown", 5f);
+                }
+                else Pursue();
+            }
         }
     }
 }

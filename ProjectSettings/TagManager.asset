@@ -12,6 +12,7 @@ TagManager:
   - Safe
   - hide
   - cop
+  - robber
   layers:
   - Default
   - TransparentFX
