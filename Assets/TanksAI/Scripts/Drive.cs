@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
 
 public class Drive : MonoBehaviour
 {
     public float speed = 10.0f;
     public float rotationSpeed = 100.0f;
+    public float currentSpeed = 0f;
 
     void Update()
     {
@@ -21,6 +21,7 @@ public class Drive : MonoBehaviour
 
         // Move translation along the object's z-axis
         transform.Translate(0, 0, translation);
+        currentSpeed = translation;
 
         // Rotate around our y-axis
         transform.Rotate(0, rotation, 0);
