@@ -13,6 +13,8 @@ TagManager:
   - hide
   - cop
   - robber
+  - goal
+  - agent
   layers:
   - Default
   - TransparentFX

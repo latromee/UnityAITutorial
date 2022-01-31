@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIControl : MonoBehaviour
+namespace NavMeshAgents
 {
-    public NavMeshAgent agent;
-    void Start()
+    public class AIControl : MonoBehaviour
     {
-        agent = GetComponent<NavMeshAgent>();
-    }
+        public NavMeshAgent agent;
+        void Start()
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }
