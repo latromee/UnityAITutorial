@@ -15,6 +15,12 @@ TagManager:
   - robber
   - goal
   - agent
+  - Lounge
+  - WaitingArea
+  - Home
+  - Door
+  - Cubicle
+  - Reception
   layers:
   - Default
   - TransparentFX

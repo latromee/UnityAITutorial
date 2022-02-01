@@ -1,14 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-public class Edge
+namespace TanksAStar
 {
-	public Node startNode;
-	public Node endNode;
-	
-	public Edge(Node from, Node to)
+	public class Edge
 	{
-		startNode = from;
-		endNode = to;
+		public Node startNode;
+		public Node endNode;
+
+		public Edge(Node from, Node to)
+		{
+			startNode = from;
+			endNode = to;
+		}
 	}
 }
