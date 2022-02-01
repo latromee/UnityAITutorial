@@ -21,6 +21,7 @@ TagManager:
   - Door
   - Cubicle
   - Reception
+  - valuable
   layers:
   - Default
   - TransparentFX
